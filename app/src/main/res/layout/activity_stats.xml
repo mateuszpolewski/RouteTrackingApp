@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StatsActivity"
+    tools:layout_editor_absoluteX="8dp"
+    tools:layout_editor_absoluteY="-20dp"
+    android:background="@drawable/hike">
+
+
+    <Button
+        android:id="@+id/allButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="Wszystkie"
+        app:layout_constraintBaseline_toBaselineOf="@+id/yearButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/yearButton" />
+
+    <Button
+        android:id="@+id/dayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="267dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="Dzień"
+        app:layout_constraintBottom_toTopOf="@+id/barChart"
+        app:layout_constraintEnd_toStartOf="@+id/monthButton"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/monthButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="Miesiąc"
+        app:layout_constraintEnd_toStartOf="@+id/yearButton"
+        app:layout_constraintStart_toEndOf="@+id/dayButton"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/yearButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_700"
+        android:text="Rok"
+        app:layout_constraintBaseline_toBaselineOf="@+id/monthButton"
+        app:layout_constraintEnd_toStartOf="@+id/allButton"
+        app:layout_constraintStart_toEndOf="@+id/monthButton" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginBottom="16dp"
+        android:text="Dystans:"
+        android:textSize="18dp"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Liczba kroków"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:text="Średnia prędkość"
+        android:textSize="18dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/avgSpeedTextView"
+        app:layout_constraintStart_toStartOf="@+id/textView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="196dp"
+        android:text="Łączny czas:"
+        android:textSize="18dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginStart="34dp"
+        android:layout_marginBottom="16dp"
+        android:text=""
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="18dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@+id/distanceTextView"
+        app:layout_constraintTop_toBottomOf="@+id/distanceTextView" />
+
+    <TextView
+        android:id="@+id/avgSpeedTextView"
+        android:textSize="18dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@+id/timeTextView"
+        app:layout_constraintTop_toBottomOf="@+id/timeTextView" />
+
+    <TextView
+        android:id="@+id/stepsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18dp"
+        android:layout_marginTop="18dp"
+        android:text=""
+        app:layout_constraintStart_toStartOf="@+id/avgSpeedTextView"
+        app:layout_constraintTop_toBottomOf="@+id/avgSpeedTextView" />
+
+    <com.github.mikephil.charting.charts.BarChart
+        android:id="@+id/barChart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="63dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dayButton" />
+
+    <Button
+        android:id="@+id/distanceButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="Dystans"
+        app:layout_constraintBaseline_toBaselineOf="@+id/timeButton"
+        app:layout_constraintEnd_toStartOf="@+id/timeButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/timeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/purple_700"
+        android:text="Czas"
+        app:layout_constraintEnd_toStartOf="@+id/stepsButton"
+        app:layout_constraintStart_toEndOf="@+id/distanceButton"
+        app:layout_constraintTop_toBottomOf="@+id/monthButton" />
+
+    <Button
+        android:id="@+id/stepsButton"
+        android:layout_width="115dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="74dp"
+        android:backgroundTint="@color/purple_700"
+        android:text="Kroki"
+        app:layout_constraintBaseline_toBaselineOf="@+id/timeButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/timeButton" />
+</androidx.constraintlayout.widget.ConstraintLayout>
